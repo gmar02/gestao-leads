@@ -1,4 +1,4 @@
-@startuml
+@startuml gestao-leads
 
 class Usuario {
   +id_PK: INT
@@ -33,5 +33,17 @@ class Formulario {
 Usuario --> Evento : cadastra
 Usuario --> Usuario : registra
 
+class Candidato {
+    +id_candidato_PK: INT
+    +nome: VARCHAR
+    +telefone: VARCHAR
+    +email: VARCHAR
+    +curso_de_interesse: VARCHAR
+}
+
+Evento --> Candidato : possui muitos 
+
 Evento --> Formulario : possui um
+
+Formulario --> Candidato: cadastra 
 @enduml
