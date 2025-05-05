@@ -1,0 +1,37 @@
+@startuml
+
+class Usuario {
+  +id_PK: INT
+  +id_perfil_FK: INT
+  +nome: VARCHAR
+  +cargo: VARCHAR
+}
+
+class Perfil {
+    +id_perfil_PK: INT
+    +tipo: VARCHAR
+    +descricao: VARCHAR
+}
+
+Usuario --> Perfil : possui
+
+class Evento {
+    +id_evento_PK: INT
+    +id_usuario_FK: INT
+    +id_formulario_FK: INT
+    +local: VARCHAR
+    +data: LOCALDATE
+}
+
+class Formulario {
+    +id_formulario_PK: INT
+    +id_evento_FK: INT
+    +codigo: HASH
+    +validade: TIME_INTERVAL
+}
+
+Usuario --> Evento : cadastra
+Usuario --> Usuario : registra
+
+Evento --> Formulario : possui um
+@enduml
